@@ -16,7 +16,6 @@ bag_lst.sort()
 # 보석 튜플 순서 = 무게 가치
 answer = 0
 tmp_jewl = []
-print(jewl)
 for bag in bag_lst:
     while jewl and bag >= jewl[0][0]: # 보석 무게 최소가 가방에 들어가는지, 보석이 남아있는지
         heapq.heappush(tmp_jewl, -jewl[0][1])
