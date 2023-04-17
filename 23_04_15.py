@@ -8,11 +8,11 @@ result[1][1] = [1] #경로를 담을 리스트
 for i in range(2, N + 1):
 	
     #f(x-1) + 1   
-    result[i][0] = result[i-1][0] + 1
-    result[i][1] = result[i-1][1] + [i]
+    result[i][0] = result[i-1][0] + 1                           # 전 값의 횟수에서 +1했을 때 횟수
+    result[i][1] = result[i-1][1] + [i]                         # 전 값의 횟수에서 +1했을 때 프로세스
     
     #f(x//3) + 1   
-    if i % 3 == 0 and result[i//3][0] + 1 < result[i][0]:
+    if i % 3 == 0 and result[i//3][0] + 1 < result[i][0]:       # result[i//3][0] + 1 3으로 나눈 행위를 하고 난 횟수 < 1씩 더했을 때 횟수
         result[i][0] = result[i//3][0] + 1
         result[i][1] = result[i//3][1] + [i]
 
@@ -20,3 +20,7 @@ for i in range(2, N + 1):
     if i % 2 == 0 and result[i//2][0] + 1 < result[i][0]:
         result[i][0] = result[i//2][0] + 1
         result[i][1] = result[i//2][1] + [i]
+
+print(result[N][0])
+for i in result[N][1][::-1]: #뒤집은 뒤 출력
+    print(i, end=' ')
